@@ -15,11 +15,23 @@
         <java.version>1.8</java.version>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <url>http://10.0.0.59:8082/nexus/repository/public/</url>
+        </repository>
+        <repository>
+            <id>nexus</id>
+            <url>https://maven.aliyun.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </repositories>
+
     <modules>
         <module>asa-vwe-domain</module>
         <module>asa-vwe-gateway</module>
         <module>asa-vwe-service-parent</module>
         <module>asa-vwe-api-parent</module>
+        <module>asa-vwe-admin</module>
     </modules>
 
 

@@ -9,12 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>asa-vwe-domain</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>asa-vwe-model</module>
-        <module>asa-vwe-bean</module>
-    </modules>
+    <artifactId>asa-vwe-admin</artifactId>
 
 
 </project>
