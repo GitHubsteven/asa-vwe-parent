@@ -1,0 +1,11 @@
+server:
+  port: 9100
+
+spring:
+  application:
+    name: vwe_business_blog
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:7761/eureka/

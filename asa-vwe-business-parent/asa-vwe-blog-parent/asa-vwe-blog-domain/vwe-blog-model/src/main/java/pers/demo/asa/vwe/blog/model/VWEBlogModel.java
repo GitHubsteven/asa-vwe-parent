@@ -2,6 +2,7 @@ package pers.demo.asa.vwe.blog.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 import pers.demo.asa.vvwe.business.common.model.BaseModel;
 
 /**
@@ -12,6 +13,7 @@ import pers.demo.asa.vvwe.business.common.model.BaseModel;
  */
 @Setter
 @Getter
+@Accessors(chain = true)
 public class VWEBlogModel extends BaseModel<Long> {
     private String title;
     private String content;
