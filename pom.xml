@@ -24,20 +24,44 @@
             <id>nexus</id>
             <url>https://maven.aliyun.com/nexus/content/repositories/releases/</url>
         </repository>
+        <repository>
+            <id>alimaven</id>
+            <name>aliyun maven</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
     </repositories>
 
     <modules>
         <module>asa-vwe-domain</module>
         <module>asa-vwe-gateway</module>
-        <module>asa-vwe-service-parent</module>
-        <module>asa-vwe-api-parent</module>
         <module>asa-vwe-admin</module>
+        <module>asa-vwe-config</module>
+        <module>asa-vwe-business-parent</module>
+        <module>asa-vwe-eureka-server</module>
     </modules>
-
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus</id>
+            <url>http://10.0.0.59:8082/nexus/repository/public/</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <groupId>com.asa.demo</groupId>
     <artifactId>asa-vwe-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+
+    </dependencies>
+
+    <dependencyManagement>
+
+    </dependencyManagement>
+
 
     <build>
         <plugins>
