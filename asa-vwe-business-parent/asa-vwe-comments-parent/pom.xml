@@ -15,5 +15,11 @@
         <module>vwe-comments-domain</module>
     </modules>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.asa.demo</groupId>
+            <artifactId>asa-vwe-business-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

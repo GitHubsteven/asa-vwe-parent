@@ -1,5 +1,8 @@
 package pers.demo.asa.vvwe.business.common.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Date;
 
 /**
@@ -8,7 +11,12 @@ import java.util.Date;
  * @Author jet.xie
  * @Date: Created at 14:22 2019/10/10.
  */
+@Setter
+@Getter
 public class BaseModel<T> {
     private T id;
     private Date createTime;
+    private String creator;
+    private Date modifiedTime;
+    private String modifier;
 }

@@ -1,5 +1,7 @@
 package pers.demo.asa.vwe.blog.model;
 
+import lombok.Getter;
+import lombok.Setter;
 import pers.demo.asa.vvwe.business.common.model.BaseModel;
 
 /**
@@ -8,6 +10,10 @@ import pers.demo.asa.vvwe.business.common.model.BaseModel;
  * @Author jet.xie
  * @Date: Created at 15:14 2019/10/10.
  */
+@Setter
+@Getter
 public class VWEBlogModel extends BaseModel<Long> {
     private String title;
+    private String content;
+    private String author;
 }
