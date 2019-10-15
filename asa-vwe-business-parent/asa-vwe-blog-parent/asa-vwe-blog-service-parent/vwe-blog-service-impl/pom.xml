@@ -3,23 +3,19 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>asa-vwe-business-parent</artifactId>
+        <artifactId>asa-vwe-blog-service-parent</artifactId>
         <groupId>com.asa.demo</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <packaging>pom</packaging>
-    <modules>
-        <module>asa-vwe-blog-domain</module>
-        <module>asa-vwe-blog-api</module>
-        <module>asa-vwe-blog-starter</module>
-        <module>asa-vwe-blog-service</module>
-        <module>asa-vwe-blog-service-parent</module>
-    </modules>
-    <artifactId>asa-vwe-blog-parent</artifactId>
+    <artifactId>vwe-blog-service-impl</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>com.asa.demo</groupId>
+            <artifactId>vwe-blog-dao</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
-
 </project>
