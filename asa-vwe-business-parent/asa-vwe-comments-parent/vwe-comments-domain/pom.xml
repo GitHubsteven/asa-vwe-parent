@@ -16,4 +16,8 @@
         <module>vwe-comments-model</module>
         <module>vwe-comments-bean</module>
     </modules>
+
+    <dependencies>
+        
+    </dependencies>
 </project>

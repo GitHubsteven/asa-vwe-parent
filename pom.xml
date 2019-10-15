@@ -21,10 +21,10 @@
             <id>nexus</id>
             <url>http://10.0.0.59:8082/nexus/repository/public/</url>
         </repository>
-        <repository>
-            <id>nexus</id>
-            <url>https://maven.aliyun.com/nexus/content/repositories/releases/</url>
-        </repository>
+        <!--        <repository>-->
+        <!--            <id>nexus</id>-->
+        <!--            <url>https://maven.aliyun.com/nexus/content/repositories/releases/</url>-->
+        <!--        </repository>-->
         <repository>
             <id>alimaven</id>
             <name>aliyun maven</name>
@@ -37,7 +37,6 @@
     </repositories>
 
     <modules>
-        <module>asa-vwe-domain</module>
         <module>asa-vwe-gateway</module>
         <module>asa-vwe-admin</module>
         <module>asa-vwe-config</module>
@@ -74,7 +73,6 @@
         </dependencies>
     </dependencyManagement>
 
-
     <build>
         <plugins>
             <plugin>
@@ -82,5 +80,33 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.7</version>
+                    <configuration>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>findbugs-maven-plugin</artifactId>
+                    <version>2.5.5</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.2</version>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                        <encoding>UTF-8</encoding>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 </project>

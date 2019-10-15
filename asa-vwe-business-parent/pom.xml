@@ -13,7 +13,7 @@
     <modules>
         <module>asa-vwe-blog-parent</module>
         <module>asa-vwe-comments-parent</module>
-        <module>asa-vwe-business-common</module>
+        <module>asa-vwe-business-common-parent</module>
     </modules>
     <artifactId>asa-vwe-business-parent</artifactId>
 

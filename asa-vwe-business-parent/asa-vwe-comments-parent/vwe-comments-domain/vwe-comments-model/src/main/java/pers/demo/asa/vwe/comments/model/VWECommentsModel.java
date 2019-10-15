@@ -2,7 +2,7 @@ package pers.demo.asa.vwe.comments.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import pers.demo.asa.vvwe.business.common.model.BaseModel;
+import pers.demo.asa.vwe.common.model.BaseModel;
 
 import java.util.Date;
 
@@ -14,7 +14,7 @@ import java.util.Date;
  */
 @Setter
 @Getter
-public class VWECommentsModel extends BaseModel<Long> {
+public class VWECommentsModel extends BaseModel {
     private String content;
     private String blogId;
     private String email;

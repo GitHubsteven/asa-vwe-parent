@@ -3,7 +3,7 @@ package pers.demo.asa.vwe.blog.model;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import pers.demo.asa.vvwe.business.common.model.BaseModel;
+import pers.demo.asa.vwe.common.model.BaseModel;
 
 /**
  * @version 1.0.0 COPYRIGHT © 2001 - 2019 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
@@ -14,7 +14,7 @@ import pers.demo.asa.vvwe.business.common.model.BaseModel;
 @Setter
 @Getter
 @Accessors(chain = true)
-public class VWEBlogModel extends BaseModel<Long> {
+public class VWEBlogModel extends BaseModel {
     private String title;
     private String content;
     private String author;

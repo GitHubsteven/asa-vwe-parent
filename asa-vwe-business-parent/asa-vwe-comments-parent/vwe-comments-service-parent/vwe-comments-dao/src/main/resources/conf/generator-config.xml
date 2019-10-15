@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--导入属性配置 -->
+    <properties resource="prop/datasource.properties"/>
+    <!--指定特定数据库的jdbc驱动jar包的位置 -->
+    <classPathEntry location="${spring.datasource.driver-location}"/>
+    <context id="default" targetRuntime="Mybatis3">
+
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="${spring.datasource.driver-class-name}"
+                        connectionURL="${spring.datasource.url}"
+                        userId="${spring.datasource.username}"
+                        password="${spring.datasource.password}">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="falseBigDecimal" value="true"/>
+        </javaTypeResolver>
+
+        <!-- Model模型生成器,用来生成含有主键key的类，记录类 以及查询Example类
+            targetPackage     指定生成的model生成所在的包名
+            targetProject     指定在该项目下所在的路径
+        -->
+        <javaModelGenerator targetPackage="${spring.datasource.generator.package.model}" targetProject="src/main/java">
+            <!-- 是否允许子包，即targetPackage.schemaName.tableName -->
+            <property name="enableSubPackages" value="false"/>
+            <!-- 建立的Model对象是否 不可改变  即生成的Model对象不会有 setter方法，只有构造方法 -->
+            <property name="immutable" value="true"/>
+            <!-- 给Model添加一个父类 -->
+            <property name="rootClass" value="com.spring.tutorial.pers.demo.asa.vwe.common.model.BaseModel"/>
+            <!-- 是否对类CHAR类型的列的数据进行trim操作 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="spring.datasource.generator.package.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+            <!--<property name="" value=""/>-->
+        </sqlMapGenerator>
+
+        <!-- 客户端代码，生成易于使用的针对Model对象和XML配置文件 的代码
+                type="ANNOTATEDMAPPER",生成Java Model 和基于注解的Mapper对象
+                type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象
+                type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口
+        -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="spring.datasource.generator.package.dao"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+            <!--
+                  定义Maper.java 源代码中的ByExample() 方法的可视性，可选的值有：
+                  public;
+                  private;
+                  protected;
+                  default
+                  注意：如果 targetRuntime="MyBatis3",此参数被忽略
+           -->
+            <property name="exampleMethodVisibility" value="public"/>
+
+            <!--方法名计数器Important note: this property is ignored if the target runtime is MyBatis3. -->
+            <property name="methodNameCalculator" value=""/>
+            <!--为生成的接口添加父接口-->
+            <property name="rootInterface" value="pers.demo.asa.vvwe.business.common.pers.demo.asa.vwe.common.model.BaseModel"/>
+
+        </javaClientGenerator>
+
+
+        <table tableName="vwe_comments" domainObjectName="VWECommentsModel" schema="asa_vwe">
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="id" sqlStatement="DB2" identity="true"/>
+            <ignoreColumn column="id" delimitedColumnName="true"/>
+            <ignoreColumn column="creat_time" delimitedColumnName="true"/>
+            <ignoreColumn column="creator" delimitedColumnName="true"/>
+            <ignoreColumn column="modified_time" delimitedColumnName="true"/>
+            <ignoreColumn column="modifier" delimitedColumnName="true"/>
+
+        </table>
+    </context>
+</generatorConfiguration>

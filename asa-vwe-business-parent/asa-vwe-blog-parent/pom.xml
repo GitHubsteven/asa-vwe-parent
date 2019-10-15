@@ -18,11 +18,6 @@
     <artifactId>asa-vwe-blog-parent</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>com.asa.demo</groupId>
-            <artifactId>asa-vwe-business-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 
 </project>
