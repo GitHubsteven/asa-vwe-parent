@@ -33,12 +33,12 @@
             <!-- 建立的Model对象是否 不可改变  即生成的Model对象不会有 setter方法，只有构造方法 -->
             <property name="immutable" value="true"/>
             <!-- 给Model添加一个父类 -->
-            <property name="rootClass" value="com.spring.tutorial.pers.demo.asa.vwe.common.model.BaseModel"/>
+            <property name="rootClass" value="pers.demo.asa.vwe.common.model.BaseModel"/>
             <!-- 是否对类CHAR类型的列的数据进行trim操作 -->
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="spring.datasource.generator.package.mapper" targetProject="src/main/java">
+        <sqlMapGenerator targetPackage="${spring.datasource.generator.package.mapper}" targetProject="src/main/java">
             <property name="enableSubPackages" value="false"/>
             <!--<property name="" value=""/>-->
         </sqlMapGenerator>
@@ -48,7 +48,7 @@
                 type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象
                 type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口
         -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="spring.datasource.generator.package.dao"
+        <javaClientGenerator type="XMLMAPPER" targetPackage="${spring.datasource.generator.package.dao}"
                              targetProject="src/main/java">
             <property name="enableSubPackages" value="false"/>
             <!--
@@ -64,16 +64,15 @@
             <!--方法名计数器Important note: this property is ignored if the target runtime is MyBatis3. -->
             <property name="methodNameCalculator" value=""/>
             <!--为生成的接口添加父接口-->
-            <property name="rootInterface" value="pers.demo.asa.vvwe.business.common.pers.demo.asa.vwe.common.model.BaseModel"/>
+            <property name="rootInterface" value="pers.demo.asa.vwe.common.dao.BaseDao"/>
 
         </javaClientGenerator>
-
 
         <table tableName="vwe_comments" domainObjectName="VWECommentsModel" schema="asa_vwe">
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="id" sqlStatement="DB2" identity="true"/>
             <ignoreColumn column="id" delimitedColumnName="true"/>
-            <ignoreColumn column="creat_time" delimitedColumnName="true"/>
+            <ignoreColumn column="create_time" delimitedColumnName="true"/>
             <ignoreColumn column="creator" delimitedColumnName="true"/>
             <ignoreColumn column="modified_time" delimitedColumnName="true"/>
             <ignoreColumn column="modifier" delimitedColumnName="true"/>

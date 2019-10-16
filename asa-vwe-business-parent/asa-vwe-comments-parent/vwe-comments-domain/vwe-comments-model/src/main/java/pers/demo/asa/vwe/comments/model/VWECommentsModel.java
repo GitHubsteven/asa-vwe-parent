@@ -2,9 +2,8 @@ package pers.demo.asa.vwe.comments.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 import pers.demo.asa.vwe.common.model.BaseModel;
-
-import java.util.Date;
 
 /**
  * @version 1.0.0 COPYRIGHT © 2001 - 2019 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
@@ -14,6 +13,7 @@ import java.util.Date;
  */
 @Setter
 @Getter
+@Accessors(chain = true)
 public class VWECommentsModel extends BaseModel {
     private String content;
     private String blogId;
