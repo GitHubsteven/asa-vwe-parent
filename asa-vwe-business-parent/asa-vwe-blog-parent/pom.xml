@@ -14,7 +14,6 @@
         <module>asa-vwe-blog-domain</module>
         <module>asa-vwe-blog-api</module>
         <module>asa-vwe-blog-starter</module>
-        <module>asa-vwe-blog-service</module>
         <module>asa-vwe-blog-service-parent</module>
     </modules>
     <artifactId>asa-vwe-blog-parent</artifactId>
