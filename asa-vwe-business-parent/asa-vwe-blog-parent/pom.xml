@@ -15,7 +15,9 @@
         <module>asa-vwe-blog-api</module>
         <module>asa-vwe-blog-starter</module>
         <module>asa-vwe-blog-service</module>
-        <module>asa-vwe-blog-service-parent</module>
+        <module>asa-vwe-blog-dao</module>
+        <module>asa-vwe-blog-impl</module>
+
     </modules>
     <artifactId>asa-vwe-blog-parent</artifactId>
 

@@ -11,6 +11,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>vwe-common-model</module>
+        <module>vwe-common-generator</module>
     </modules>
 
     <artifactId>asa-vwe-business-common-parent</artifactId>
