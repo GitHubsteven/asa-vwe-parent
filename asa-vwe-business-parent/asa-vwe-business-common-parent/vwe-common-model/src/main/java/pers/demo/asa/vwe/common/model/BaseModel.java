@@ -2,6 +2,7 @@ package pers.demo.asa.vwe.common.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.util.Date;
 
@@ -13,6 +14,7 @@ import java.util.Date;
  */
 @Setter
 @Getter
+@Accessors(chain = true)
 public class BaseModel {
     private Long id;
     private Date createTime;
