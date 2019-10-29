@@ -13,6 +13,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
         </dependency>
@@ -27,6 +31,16 @@
         <dependency>
             <groupId>com.ibeetl</groupId>
             <artifactId>beetl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.asa.demo</groupId>
+            <artifactId>vwe-common-component</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.yaml/snakeyaml -->
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
         </dependency>
     </dependencies>
 </project>

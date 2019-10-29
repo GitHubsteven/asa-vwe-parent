@@ -10,11 +10,20 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>vwe-common-model</module>
         <module>vwe-common-generator</module>
+        <module>vwe-common-component</module>
     </modules>
 
     <artifactId>asa-vwe-business-common-parent</artifactId>
 
-
+    <dependencyManagement>
+        <dependencies>
+            <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-annotation -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-annotation</artifactId>
+                <version>3.2.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

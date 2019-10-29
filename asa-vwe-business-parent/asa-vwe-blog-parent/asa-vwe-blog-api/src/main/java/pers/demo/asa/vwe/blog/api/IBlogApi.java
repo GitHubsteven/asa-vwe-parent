@@ -1,14 +1,11 @@
 package pers.demo.asa.vwe.blog.api;
 
-import org.json.JSONObject;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import pers.demo.asa.vwe.blog.bean.BlogUrlConstant;
-import pers.demo.asa.vwe.blog.model.VWEBlogModel;
-
-import java.util.List;
+import pers.demo.asa.vwe.blog.model.BlogModel;
 
 /**
  * @version 1.0.0 COPYRIGHT © 2001 - 2019 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
@@ -24,18 +21,15 @@ public interface IBlogApi {
      * @return blog信息
      */
     @GetMapping(BlogUrlConstant.Blog.GET_BLOG_BY_ID)
-    VWEBlogModel getBlogById(@PathVariable("id") Long id);
+    BlogModel getBlogById(@PathVariable("id") Long id);
+
 
     /**
-     * 获取所有的博客信息
+     * 生成blog
      *
-     * @return 博客信息集合
+     * @param blog blog信息
+     * @return 生成的blog的数量
      */
-    @GetMapping(BlogUrlConstant.Blog.LIST_BLOG)
-    List<VWEBlogModel> listBlogs();
-
-    // TODO: 2019/10/10 完善blog的接口定义和实现
-
     @PostMapping(BlogUrlConstant.Blog.CREATE_BLOG)
-    int createBlog(@RequestBody VWEBlogModel blog);
+    int createBlog(@RequestBody BlogModel blog);
 }

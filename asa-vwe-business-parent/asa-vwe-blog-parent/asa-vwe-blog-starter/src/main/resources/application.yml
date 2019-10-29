@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: vwe_business_blog
+    name: vwe_buz_blog
 
 eureka:
   client:

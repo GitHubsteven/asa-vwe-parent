@@ -19,8 +19,14 @@
         </dependency>
         <dependency>
             <groupId>com.asa.demo</groupId>
-            <artifactId>vwe-common-model</artifactId>
+            <artifactId>vwe-common-component</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-annotation -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-annotation</artifactId>
+        </dependency>
+
     </dependencies>
 </project>

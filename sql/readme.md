@@ -7,11 +7,11 @@ create table vwe_blog
 		primary key,
 	title varchar(100) null,
 	author varchar(50) not null,
-	createtTime timestamp default CURRENT_TIMESTAMP not null,
+	content varchar(10000) null,
+	create_time timestamp default CURRENT_TIMESTAMP not null,
 	creator varchar(50) not null,
-	modifiedTime timestamp default CURRENT_TIMESTAMP not null,
-	modifier varchar(50) not null,
-	content varchar(10000) null
+	modify_time timestamp default CURRENT_TIMESTAMP not null,
+	modifier varchar(50) not null
 )；
 
 ```
@@ -27,9 +27,9 @@ create table vwe_comments
 	ref_id varchar(20) null,
 	remark varchar(200) null,
 	sub_comments varchar(200) null,
-	createt_time timestamp default CURRENT_TIMESTAMP not null,
+	create_time timestamp default CURRENT_TIMESTAMP not null,
 	creator varchar(50) not null,
-	modified_time timestamp default CURRENT_TIMESTAMP not null,
+	modify_time timestamp default CURRENT_TIMESTAMP not null,
 	modifier varchar(50) not null
 );
 ```
