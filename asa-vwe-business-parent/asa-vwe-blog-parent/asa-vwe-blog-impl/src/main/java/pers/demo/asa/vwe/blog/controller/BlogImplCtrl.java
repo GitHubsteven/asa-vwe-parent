@@ -10,6 +10,8 @@ import pers.demo.asa.vwe.blog.model.BlogModel;
 import pers.demo.asa.vwe.blog.service.IBlogService;
 import pers.demo.asa.vwe.blog.service.impl.BlogServiceImpl;
 
+import java.time.LocalDateTime;
+
 /**
  * <p>
  * 前端控制器
@@ -26,7 +28,10 @@ public class BlogImplCtrl implements IBlogApi {
 
 
     public BlogModel getBlogById(Long id) {
-        return null;
+        BlogModel model = new BlogModel();
+        model.setAuthor("asa.x");
+        model.setCreateTime(LocalDateTime.now());
+        return model;
     }
 
     public int createBlog(BlogModel blog) {
