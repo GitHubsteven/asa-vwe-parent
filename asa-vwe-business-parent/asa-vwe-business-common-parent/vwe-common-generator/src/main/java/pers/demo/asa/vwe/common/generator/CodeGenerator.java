@@ -1,6 +1,5 @@
 package pers.demo.asa.vwe.common.generator;
 
-import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
@@ -10,7 +9,10 @@ import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.stream.Collectors;
 
 /**
@@ -22,7 +24,7 @@ import java.util.stream.Collectors;
 public class CodeGenerator {
     private static String DATASOURCE_URL = "jdbc:mysql://127.0.0.1:3306/asa_vwe?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC";
     private static String PATH_SEPARATOR = "/";
-    static String PARENT_PACKAGE = "pers.demo.asa.vwe.blog";
+    static String PARENT_PACKAGE = "pers.demo.asa.vwe.comments";
     private static String ENTITY_SUFFIX = "Model";
     //    String
     static String SRC_MAIN_JAVA = "/src/main/java";
@@ -30,25 +32,25 @@ public class CodeGenerator {
     static String MODULE_NAME = "vwe";   //vwe
 
     //必填
-    private static String[] main_project = {"asa-vwe-business-parent", "asa-vwe-blog-parent"};
+    private static String[] main_project = {"asa-vwe-business-parent", "asa-vwe-comments-parent"};
 
     //model
-    static String[] model_module_chain = concat(main_project, "asa-vwe-blog-domain", "vwe-blog-model");
+    static String[] model_module_chain = concat(main_project, "asa-vwe-comments-domain", "vwe-comments-model");
     private static String model_module_dir = "";
     //dao
-    private static String[] dao_module_chain = concat(main_project, "asa-vwe-blog-dao");
+    private static String[] dao_module_chain = concat(main_project, "asa-vwe-comments-dao");
     private static String dao_module_dir = "";
     //mapper
-    private static String[] mapper_module_chain = concat(main_project, "asa-vwe-blog-dao");
+    private static String[] mapper_module_chain = concat(main_project, "asa-vwe-comments-dao");
     private static String mapper_module_dir = "";
     //service
-    private static String[] service_module_chain = concat(main_project, "asa-vwe-blog-service");
+    private static String[] service_module_chain = concat(main_project, "asa-vwe-comments-service");
     private static String service_module_dir = "";
     //controller
-    private static String[] controller_module_chain = concat(main_project, "asa-vwe-blog-impl");
+    private static String[] controller_module_chain = concat(main_project, "asa-vwe-comments-api-impl");
     private static String controller_module_dir = "";
     //"^vwe_(.*)$"
-    private static String[] tables = {"vwe_blog"};
+    private static String[] tables = {"vwe_comments"};
     private static String[] ignore_columns = {"id", "creator", "create_time", "modifier", "modify_time"};
 
     //选填
@@ -87,6 +89,7 @@ public class CodeGenerator {
         pc.setParent(PARENT_PACKAGE);
         pc.setEntity("model");
         pc.setMapper("dao");
+        pc.setController("api.impl");  //修改日期：2019-10-31
         mpg.setPackageInfo(pc);
 
         // 自定义配置
@@ -232,7 +235,7 @@ public class CodeGenerator {
                         SRC_MAIN_JAVA,
                         PARENT_PACKAGE,
                         "",
-                        "controller");
+                        "api/impl");
                 return modelPath
                         + PATH_SEPARATOR
                         + tableInfo.getEntityName().replace("Model", "ImplCtrl")

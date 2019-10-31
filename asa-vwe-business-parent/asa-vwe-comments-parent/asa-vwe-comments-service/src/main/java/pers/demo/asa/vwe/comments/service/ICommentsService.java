@@ -1,4 +1,4 @@
-package com.asa.demo.vwe.comments.service;
+package pers.demo.asa.vwe.comments.service;
 
 /**
  * @version 1.0.0 COPYRIGHT © 2001 - 2019 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.

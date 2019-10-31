@@ -12,7 +12,11 @@
     <artifactId>vwe-comments-model</artifactId>
 
     <dependencies>
-        
+        <dependency>
+            <groupId>com.asa.demo</groupId>
+            <artifactId>vwe-common-component</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>
