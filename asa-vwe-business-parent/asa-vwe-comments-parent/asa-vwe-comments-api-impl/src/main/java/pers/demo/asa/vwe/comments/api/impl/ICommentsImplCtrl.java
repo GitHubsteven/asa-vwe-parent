@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pers.demo.asa.vwe.comments.api.ICommentApi;
+import pers.demo.asa.vwe.comments.dao.CommentsDao;
 import pers.demo.asa.vwe.comments.service.ICommentsService;
 
 /**
@@ -18,9 +19,16 @@ import pers.demo.asa.vwe.comments.service.ICommentsService;
 public class ICommentsImplCtrl implements ICommentApi {
     @Autowired
     private ICommentsService iCommentsService;
+    @Autowired
+    private CommentsDao commentsDao;
 
     @GetMapping("/api1")
     public String api1() {
         return "comments service test, call result is: " + iCommentsService.api1();
+    }
+
+    @GetMapping("/count")
+    public int count() {
+        return commentsDao.countComments();
     }
 }

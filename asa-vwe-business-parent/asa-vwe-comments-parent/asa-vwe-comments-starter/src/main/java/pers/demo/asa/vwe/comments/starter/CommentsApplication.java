@@ -1,5 +1,6 @@
 package pers.demo.asa.vwe.comments.starter;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication
 @ComponentScan("pers.demo.asa.vwe.comments")
+@MapperScan("pers.demo.asa.vwe.comments.dao")
 public class CommentsApplication {
     public static void main(String[] args) {
         SpringApplication.run(CommentsApplication.class, args);
