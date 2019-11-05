@@ -3,7 +3,7 @@ package pers.demo.asa.vwe.comments.service.impl;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import pers.demo.asa.vwe.comments.service.BaseService;
+import pers.demo.asa.vwe.comments.service.BaseServiceTest;
 import pers.demo.asa.vwe.comments.service.ICommentsService;
 
 /**
@@ -12,12 +12,17 @@ import pers.demo.asa.vwe.comments.service.ICommentsService;
  * @Author jet.xie
  * @Date: Created at 14:57 2019/11/5.
  */
-public class CommentsServiceTest extends BaseService {
-//    @Autowired
-//    private ICommentsService iCommentsService;
+public class CommentsServiceTest extends BaseServiceTest {
+    @Autowired
+    private ICommentsService iCommentsService;
 
     @Test
     public void testCount() {
-//        Assert.assertEquals(1, iCommentsService.countComments());
+        Assert.assertEquals(1, iCommentsService.countComments());
+    }
+
+    @Test
+    public void testApi1() {
+        $.info("------------------->" + iCommentsService.api1());
     }
 }

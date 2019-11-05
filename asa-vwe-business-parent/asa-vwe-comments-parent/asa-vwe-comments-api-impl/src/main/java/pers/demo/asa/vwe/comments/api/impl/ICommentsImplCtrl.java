@@ -1,14 +1,10 @@
 package pers.demo.asa.vwe.comments.api.impl;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pers.demo.asa.vwe.comments.api.ICommentApi;
-import pers.demo.asa.vwe.comments.dao.CommentsDao;
 import pers.demo.asa.vwe.comments.model.CommentsModel;
 import pers.demo.asa.vwe.comments.service.ICommentsService;
 
@@ -22,10 +18,11 @@ import pers.demo.asa.vwe.comments.service.ICommentsService;
 @RestController
 @RequestMapping("/comments")
 public class ICommentsImplCtrl implements ICommentApi {
-    @Autowired
-    private ICommentsService iCommentsService;
-    @Autowired
-    private CommentsDao commentsDao;
+    private final ICommentsService iCommentsService;
+
+    public ICommentsImplCtrl(ICommentsService iCommentsService) {
+        this.iCommentsService = iCommentsService;
+    }
 
     @GetMapping("/api1")
     public String api1() {
@@ -34,16 +31,11 @@ public class ICommentsImplCtrl implements ICommentApi {
 
     @GetMapping("/count")
     public int count() {
-        return commentsDao.countComments();
+        return iCommentsService.countComments();
     }
 
     @GetMapping("/getById/{id}")
     public CommentsModel getById(@PathVariable("id") Long id) {
-        CommentsModel checkModel = new CommentsModel();
-        checkModel.setId(id);
-        QueryWrapper<CommentsModel> queryWrapper = new QueryWrapper<>();
-        queryWrapper.setEntity(checkModel);
-        return commentsDao.selectOne(queryWrapper);
-//        return commentsDao.selectOne(checkModel);
+        return iCommentsService.getById(id);
     }
 }

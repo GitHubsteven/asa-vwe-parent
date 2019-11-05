@@ -1,5 +1,7 @@
 package pers.demo.asa.vwe.comments.service;
 
+import pers.demo.asa.vwe.comments.model.CommentsModel;
+
 /**
  * @version 1.0.0 COPYRIGHT © 2001 - 2019 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  * @Description:
@@ -20,4 +22,12 @@ public interface ICommentsService {
      * @return 数量
      */
     int countComments();
+
+    /**
+     * 通过id来获取评论的内容
+     *
+     * @param id id
+     * @return 评论内容
+     */
+    CommentsModel getById(long id);
 }
