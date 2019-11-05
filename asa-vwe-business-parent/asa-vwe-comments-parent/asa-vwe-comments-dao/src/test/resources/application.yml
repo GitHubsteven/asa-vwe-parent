@@ -18,8 +18,7 @@ logging:
         asa:
           vwe:
             comments:
-              dao: trace
+              dao: info
 
-#mybatis-plus config:
-mybatis-plus:
+mybatis:
   mapper-locations: classpath*:pers/demo/asa/vwe/comments/mapper/**/*.xml

@@ -13,4 +13,11 @@ public interface ICommentsService {
      * @return 测试内容
      */
     String api1();
+
+    /**
+     * 计算数量
+     *
+     * @return 数量
+     */
+    int countComments();
 }

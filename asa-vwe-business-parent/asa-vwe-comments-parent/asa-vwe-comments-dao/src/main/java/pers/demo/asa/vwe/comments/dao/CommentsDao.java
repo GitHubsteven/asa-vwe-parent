@@ -1,7 +1,8 @@
 package pers.demo.asa.vwe.comments.dao;
 
-import pers.demo.asa.vwe.comments.model.CommentsModel;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.springframework.stereotype.Component;
+import pers.demo.asa.vwe.comments.model.CommentsModel;
 
 /**
  * <p>
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author asa.x
  * @since 2019-10-31
  */
+@Component
 public interface CommentsDao extends BaseMapper<CommentsModel> {
     /**
      * 统计数量

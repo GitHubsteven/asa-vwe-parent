@@ -1,6 +1,7 @@
 package pers.demo.asa.vwe.comments.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pers.demo.asa.vwe.comments.dao.CommentsDao;
 import pers.demo.asa.vwe.comments.model.CommentsModel;
@@ -16,9 +17,16 @@ import pers.demo.asa.vwe.comments.service.ICommentsService;
  */
 @Service
 public class CommentsServiceImpl extends ServiceImpl<CommentsDao, CommentsModel> implements ICommentsService {
+    @Autowired
+    private CommentsDao commentsDao;
 
     @Override
     public String api1() {
         return "api1";
+    }
+
+    @Override
+    public int countComments() {
+        return commentsDao.countComments();
     }
 }
