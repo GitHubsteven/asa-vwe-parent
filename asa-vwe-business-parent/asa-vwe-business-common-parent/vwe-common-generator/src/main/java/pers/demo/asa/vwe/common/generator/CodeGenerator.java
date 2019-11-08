@@ -36,19 +36,14 @@ public class CodeGenerator {
 
     //model
     static String[] model_module_chain = concat(main_project, "asa-vwe-comments-domain", "vwe-comments-model");
-    private static String model_module_dir = "";
     //dao
     private static String[] dao_module_chain = concat(main_project, "asa-vwe-comments-dao");
-    private static String dao_module_dir = "";
     //mapper
     private static String[] mapper_module_chain = concat(main_project, "asa-vwe-comments-dao");
-    private static String mapper_module_dir = "";
     //service
     private static String[] service_module_chain = concat(main_project, "asa-vwe-comments-service");
-    private static String service_module_dir = "";
     //controller
     private static String[] controller_module_chain = concat(main_project, "asa-vwe-comments-api-impl");
-    private static String controller_module_dir = "";
     //"^vwe_(.*)$"
     private static String[] tables = {"vwe_comments"};
     private static String[] ignore_columns = {"id", "creator", "create_time", "modifier", "modify_time"};
@@ -90,6 +85,7 @@ public class CodeGenerator {
         pc.setEntity("model");
         pc.setMapper("dao");
         pc.setController("api.impl");  //修改日期：2019-10-31
+
         mpg.setPackageInfo(pc);
 
         // 自定义配置

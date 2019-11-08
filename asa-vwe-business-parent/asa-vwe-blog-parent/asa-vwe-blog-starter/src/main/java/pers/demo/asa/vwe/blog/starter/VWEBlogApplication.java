@@ -1,5 +1,6 @@
 package pers.demo.asa.vwe.blog.starter;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Component;
 @EnableEurekaClient
 @EnableDiscoveryClient
 @ComponentScan("pers.demo.asa.vwe.blog")
+@MapperScan("pers.demo.asa.vwe.blog.dao")
 public class VWEBlogApplication {
     public static void main(String[] args) {
         SpringApplication.run(VWEBlogApplication.class, args);

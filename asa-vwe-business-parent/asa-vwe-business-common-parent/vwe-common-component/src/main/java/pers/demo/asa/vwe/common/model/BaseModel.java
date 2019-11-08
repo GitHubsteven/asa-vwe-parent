@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -15,8 +16,8 @@ import java.time.LocalDateTime;
 @Setter
 @Getter
 @Accessors(chain = true)
-public class BaseModel {
-    private Long id;
+public class BaseModel<K> implements Serializable {
+    private K id;
     private LocalDateTime createTime;
     private LocalDateTime modifyTime;
     private String creator;
