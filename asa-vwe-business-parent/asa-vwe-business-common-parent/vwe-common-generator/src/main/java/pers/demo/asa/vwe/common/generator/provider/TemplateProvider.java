@@ -49,7 +49,7 @@ public interface TemplateProvider {
 
         @Override
         public String DaoTmp() {
-            return StringUtils.isBlank(this.getDao()) ? ConstVal.TEMPLATE_MAPPER + ".ftl"
+            return StringUtils.isBlank(this.getDao()) ? VMGConstant.CustomTemplateUrl.VOERP_DAO
                     : this.getDao();
         }
 
