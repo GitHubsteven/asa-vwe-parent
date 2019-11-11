@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScans;
 import org.springframework.stereotype.Component;
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Component;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableDiscoveryClient
+@EnableFeignClients(basePackages={"com.asa.demo.vwe.comments.feign.client"})
 @ComponentScan("pers.demo.asa.vwe.blog")
 @MapperScan("pers.demo.asa.vwe.blog.dao")
 public class VWEBlogApplication {

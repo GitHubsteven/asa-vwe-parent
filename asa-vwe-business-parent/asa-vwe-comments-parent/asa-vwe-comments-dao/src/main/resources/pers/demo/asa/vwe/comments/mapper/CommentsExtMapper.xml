@@ -4,5 +4,11 @@
     <select id="countComments" resultType="int">
         select count(*)
         from asa_vwe.vwe_comments
+        <where>
+            <if test="blogId != null">
+                where blog_id = #{blogId}
+            </if>
+        </where>
+
     </select>
 </mapper>

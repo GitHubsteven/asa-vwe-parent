@@ -1,12 +1,12 @@
 package pers.demo.asa.vwe.comments.api.impl;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.web.bind.annotation.RestController;
-import pers.demo.asa.vwe.comments.api.ICommentApi;
+import pers.demo.asa.vwe.comments.api.ICommentsApi;
 import pers.demo.asa.vwe.comments.model.CommentsModel;
-import pers.demo.asa.vwe.comments.service.ICommentsService;
+import pers.demo.asa.vwe.comments.service.impl.CommentsServiceImpl;
+
+import java.util.List;
 
 
 /**
@@ -16,26 +16,32 @@ import pers.demo.asa.vwe.comments.service.ICommentsService;
  * @Date: Created at 18:49 2019/10/29.
  */
 @RestController
-@RequestMapping("/comments")
-public class ICommentsImplCtrl implements ICommentApi {
-    private final ICommentsService iCommentsService;
+public class ICommentsImplCtrl implements ICommentsApi {
+    private final CommentsServiceImpl iCommentsService;
 
-    public ICommentsImplCtrl(ICommentsService iCommentsService) {
+    public ICommentsImplCtrl(CommentsServiceImpl iCommentsService) {
         this.iCommentsService = iCommentsService;
     }
 
-    @GetMapping("/api1")
     public String api1() {
         return "comments service test, call result is: " + iCommentsService.api1();
     }
 
-    @GetMapping("/count")
-    public int count() {
-        return iCommentsService.countComments();
+    public int count(String blogId) {
+        return iCommentsService.countComments(blogId);
     }
 
-    @GetMapping("/getById/{id}")
-    public CommentsModel getById(@PathVariable("id") Long id) {
-        return iCommentsService.getById(id);
+    @Override
+    public CommentsModel getById(String id) {
+        return null;
+    }
+
+    @Override
+    public List<CommentsModel> listBlogComments(String blogId) {
+        CommentsModel checkModel = new CommentsModel();
+        checkModel.setBlogId(blogId);
+        QueryWrapper<CommentsModel> queryWrapper = new QueryWrapper<>();
+        queryWrapper.setEntity(checkModel);
+        return iCommentsService.list(queryWrapper);
     }
 }

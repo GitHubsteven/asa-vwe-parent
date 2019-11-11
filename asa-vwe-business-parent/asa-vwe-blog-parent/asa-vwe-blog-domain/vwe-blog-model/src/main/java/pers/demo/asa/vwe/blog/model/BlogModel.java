@@ -19,7 +19,7 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
 @TableName("vwe_blog")
-public class BlogModel extends BaseModel {
+public class BlogModel extends BaseModel<Long> {
 
     private static final long serialVersionUID = 1L;
 

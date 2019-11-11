@@ -1,6 +1,7 @@
 package pers.demo.asa.vwe.comments.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import pers.demo.asa.vwe.comments.model.CommentsModel;
 
@@ -19,5 +20,5 @@ public interface CommentsDao extends BaseMapper<CommentsModel> {
      *
      * @return 数量
      */
-    int countComments();
+    int countComments(@Param("blogId") String blogId);
 }

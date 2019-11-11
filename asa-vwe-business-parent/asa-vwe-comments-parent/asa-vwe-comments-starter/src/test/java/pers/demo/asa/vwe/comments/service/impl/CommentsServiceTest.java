@@ -18,7 +18,7 @@ public class CommentsServiceTest extends BaseServiceTest {
 
     @Test
     public void testCount() {
-        Assert.assertEquals(1, iCommentsService.countComments());
+        Assert.assertEquals(1, iCommentsService.countComments("1"));
     }
 
     @Test

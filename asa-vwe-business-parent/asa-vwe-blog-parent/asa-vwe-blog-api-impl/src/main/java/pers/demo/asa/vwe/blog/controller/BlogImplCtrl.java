@@ -1,6 +1,7 @@
 package pers.demo.asa.vwe.blog.controller;
 
 
+import com.asa.demo.vwe.comments.feign.client.CommentsClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +24,8 @@ import java.time.LocalDateTime;
 public class BlogImplCtrl implements IBlogApi {
     @Autowired
     private IBlogService iBlogService;
+    @Autowired
+    private CommentsClient commentsClient;
 
 
     public BlogModel getBlogById(Long id) {

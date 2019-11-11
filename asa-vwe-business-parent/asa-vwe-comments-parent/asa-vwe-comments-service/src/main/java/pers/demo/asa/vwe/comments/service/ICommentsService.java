@@ -19,9 +19,10 @@ public interface ICommentsService {
     /**
      * 计算数量
      *
+     * @param blogId 博客id
      * @return 数量
      */
-    int countComments();
+    int countComments(String blogId);
 
     /**
      * 通过id来获取评论的内容

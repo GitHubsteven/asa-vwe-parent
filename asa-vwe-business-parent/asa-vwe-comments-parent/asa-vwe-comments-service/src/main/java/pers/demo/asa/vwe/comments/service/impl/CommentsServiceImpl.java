@@ -27,8 +27,8 @@ public class CommentsServiceImpl extends ServiceImpl<CommentsDao, CommentsModel>
     }
 
     @Override
-    public int countComments() {
-        return commentsDao.countComments();
+    public int countComments(String blogId) {
+        return commentsDao.countComments(blogId);
     }
 
     @Override
