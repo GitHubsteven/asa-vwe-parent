@@ -18,8 +18,8 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableDiscoveryClient
 @ComponentScan("pers.demo.asa.vwe.comments")
 @MapperScan("pers.demo.asa.vwe.comments.dao")
-public class CommentsApplication {
+public class VWECommentsApplication {
     public static void main(String[] args) {
-        SpringApplication.run(CommentsApplication.class, args);
+        SpringApplication.run(VWECommentsApplication.class, args);
     }
 }
