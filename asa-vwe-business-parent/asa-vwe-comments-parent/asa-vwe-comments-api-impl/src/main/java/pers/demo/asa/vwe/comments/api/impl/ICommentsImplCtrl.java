@@ -23,17 +23,14 @@ public class ICommentsImplCtrl implements ICommentsApi {
         this.iCommentsService = iCommentsService;
     }
 
+    @Override
     public String api1() {
         return "comments service test, call result is: " + iCommentsService.api1();
     }
 
+    @Override
     public int count(String blogId) {
         return iCommentsService.countComments(blogId);
-    }
-
-    @Override
-    public CommentsModel getById(String id) {
-        return null;
     }
 
     @Override
@@ -43,5 +40,10 @@ public class ICommentsImplCtrl implements ICommentsApi {
         QueryWrapper<CommentsModel> queryWrapper = new QueryWrapper<>();
         queryWrapper.setEntity(checkModel);
         return iCommentsService.list(queryWrapper);
+    }
+
+    @Override
+    public CommentsModel getById(String id) {
+        return iCommentsService.getById(Long.valueOf(id));
     }
 }

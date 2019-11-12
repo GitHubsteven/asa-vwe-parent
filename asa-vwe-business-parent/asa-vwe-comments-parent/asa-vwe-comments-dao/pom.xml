@@ -16,7 +16,7 @@
     <dependencies>
         <dependency>
             <groupId>com.asa.demo</groupId>
-            <artifactId>vwe-comments-model</artifactId>
+            <artifactId>vwe-comments-bean</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 

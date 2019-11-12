@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>vwe-comments-domain</artifactId>
+    <artifactId>asa-vwe-comments-domain</artifactId>
 
     <packaging>pom</packaging>
     <modules>

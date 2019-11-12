@@ -1,9 +1,7 @@
 package pers.demo.asa.vwe.blog.api;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
+import pers.demo.asa.vwe.blog.bean.BlogBean;
 import pers.demo.asa.vwe.blog.bean.BlogUrlConstant;
 import pers.demo.asa.vwe.blog.model.BlogModel;
 
@@ -13,6 +11,7 @@ import pers.demo.asa.vwe.blog.model.BlogModel;
  * @Author jet.xie
  * @Date: Created at 16:43 2019/10/10.
  */
+@RequestMapping("/blog")
 public interface IBlogApi {
     /**
      * 根据id获取blog信息
@@ -21,7 +20,7 @@ public interface IBlogApi {
      * @return blog信息
      */
     @GetMapping(BlogUrlConstant.Blog.GET_BLOG_BY_ID)
-    BlogModel getBlogById(@PathVariable("id") Long id);
+    BlogBean getBlogById(@PathVariable("id") Long id);
 
 
     /**
@@ -32,4 +31,7 @@ public interface IBlogApi {
      */
     @PostMapping(BlogUrlConstant.Blog.CREATE_BLOG)
     int createBlog(@RequestBody BlogModel blog);
+
+    @GetMapping("/test")
+    String testApi();
 }

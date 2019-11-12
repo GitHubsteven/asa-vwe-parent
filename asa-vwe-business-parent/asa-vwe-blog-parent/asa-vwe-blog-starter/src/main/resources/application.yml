@@ -1,6 +1,7 @@
 server:
   port: 9100
-
+api:
+  comments: vwe-biz-comments
 spring:
   application:
     name: vwe_buz_blog

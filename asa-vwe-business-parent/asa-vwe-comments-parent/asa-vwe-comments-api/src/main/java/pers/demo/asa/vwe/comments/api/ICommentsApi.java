@@ -43,10 +43,10 @@ public interface ICommentsApi {
     List<CommentsModel> listBlogComments(@RequestParam(name = "blogId") String blogId);
 
     /**
-     * 通过id来获取comments
+     * 通过id获取评论
      *
-     * @param id comments id
-     * @return 评论内容
+     * @param id 评论id
+     * @return 评论
      */
     @GetMapping("/getById/{id}")
     CommentsModel getById(@PathVariable("id") String id);

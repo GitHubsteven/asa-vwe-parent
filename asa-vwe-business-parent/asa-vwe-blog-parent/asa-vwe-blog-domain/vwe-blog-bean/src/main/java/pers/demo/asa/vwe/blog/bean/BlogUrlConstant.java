@@ -7,9 +7,11 @@ package pers.demo.asa.vwe.blog.bean;
  * @Date: Created at 14:56 2019/10/10.
  */
 public class BlogUrlConstant {
+    String ROOT = "/blog";
+
     public interface Blog {
         String LIST_BLOG = "/blog-list";
-        String GET_BLOG_BY_ID = "/blog-view/{id}";
+        String GET_BLOG_BY_ID = "/getById/{id}";
         String CREATE_BLOG = "/blog-create";
         String DELETE_BLOG = "/blog-create";
         String UPDATE_BLOG = "/blog-update/{id}";
