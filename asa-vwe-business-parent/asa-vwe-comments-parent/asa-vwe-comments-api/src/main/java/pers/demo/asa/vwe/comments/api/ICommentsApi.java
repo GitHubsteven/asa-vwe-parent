@@ -1,9 +1,6 @@
 package pers.demo.asa.vwe.comments.api;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import pers.demo.asa.vwe.comments.model.CommentsModel;
 
 import java.util.List;
@@ -50,4 +47,13 @@ public interface ICommentsApi {
      */
     @GetMapping("/getById/{id}")
     CommentsModel getById(@PathVariable("id") String id);
+
+    /**
+     * 添加评论
+     *
+     * @param comments 评论
+     * @return 添加结果，true表示成功，false表示失败
+     */
+    @PostMapping("/add")
+    Boolean add(@RequestBody CommentsModel comments);
 }

@@ -6,10 +6,10 @@ spring:
   application:
     name: vwe_buz_blog
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/asa_vwe?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/asa_vwe_parent?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: 123456
+    username: remote_dev
+    password: #asa123X_rd
 
 
 eureka:

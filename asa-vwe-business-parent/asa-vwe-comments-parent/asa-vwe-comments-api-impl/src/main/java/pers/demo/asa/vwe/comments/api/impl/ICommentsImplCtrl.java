@@ -1,6 +1,7 @@
 package pers.demo.asa.vwe.comments.api.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import org.springframework.web.bind.annotation.RestController;
 import pers.demo.asa.vwe.comments.api.ICommentsApi;
 import pers.demo.asa.vwe.comments.model.CommentsModel;
@@ -45,5 +46,15 @@ public class ICommentsImplCtrl implements ICommentsApi {
     @Override
     public CommentsModel getById(String id) {
         return iCommentsService.getById(Long.valueOf(id));
+    }
+
+    @Override
+    public Boolean add(CommentsModel comments) {
+        if (StringUtils.isEmpty(comments.getCreator())) {
+            String creator = "comment add api";
+            comments.setCreator(creator)
+                    .setModifier(creator);
+        }
+        return iCommentsService.save(comments);
     }
 }
