@@ -5,10 +5,10 @@ spring:
   application:
     name: vwe-biz-comments
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/asa_vwe_parent?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://122.51.129.197:3306/asa_vwe_parent
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: remote_dev
-    password: \\#asa123X_rd
+    password: asa123X_RT
+    username: remote_test
 
 eureka:
   client:
