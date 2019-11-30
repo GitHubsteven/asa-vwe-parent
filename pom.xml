@@ -27,7 +27,7 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
-<!--        <repository>-->
+        <!--        <repository>-->
         <!--            <id>nexus</id>-->
         <!--            <url>http://10.0.0.59:8082/nexus/repository/public/</url>-->
         <!--        </repository>-->
@@ -42,10 +42,6 @@
     </modules>
     <pluginRepositories>
         <pluginRepository>
-            <id>nexus</id>
-            <url>http://10.0.0.59:8082/nexus/repository/public/</url>
-        </pluginRepository>
-        <pluginRepository>
             <id>alimaven</id>
             <name>aliyun maven</name>
             <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
@@ -53,6 +49,10 @@
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>nexus</id>
+            <url>http://10.0.0.59:8082/nexus/repository/public/</url>
         </pluginRepository>
     </pluginRepositories>
 
