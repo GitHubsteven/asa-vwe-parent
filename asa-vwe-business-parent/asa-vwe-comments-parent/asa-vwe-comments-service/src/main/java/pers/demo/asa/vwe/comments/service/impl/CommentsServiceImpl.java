@@ -32,7 +32,7 @@ public class CommentsServiceImpl extends ServiceImpl<CommentsDao, CommentsModel>
     }
 
     @Override
-    public CommentsModel getById(long id) {
+    public CommentsModel getById(Integer id) {
         CommentsModel checkModel = new CommentsModel();
         checkModel.setId(id);
         QueryWrapper<CommentsModel> queryWrapper = new QueryWrapper<>();

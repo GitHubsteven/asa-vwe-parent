@@ -18,7 +18,7 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
 @TableName("vwe_comments")
-public class CommentsModel extends BaseModel<Long> {
+public class CommentsModel extends BaseModel<Integer> {
 
     private static final long serialVersionUID = 1L;
 

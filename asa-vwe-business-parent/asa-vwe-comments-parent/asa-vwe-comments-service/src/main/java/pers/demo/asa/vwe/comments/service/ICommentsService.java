@@ -30,5 +30,6 @@ public interface ICommentsService {
      * @param id id
      * @return 评论内容
      */
-    CommentsModel getById(long id);
+    CommentsModel getById(Integer id);
+
 }
