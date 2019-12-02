@@ -2,6 +2,8 @@ package pers.demo.asa.vwe.comments.api.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.RestController;
 import pers.demo.asa.vwe.comments.api.ICommentsApi;
 import pers.demo.asa.vwe.comments.model.CommentsModel;
@@ -19,6 +21,8 @@ import java.util.List;
 @RestController
 public class ICommentsImplCtrl implements ICommentsApi {
     private final CommentsServiceImpl iCommentsService;
+    private final ObjectMapper objectMapper = new ObjectMapper();
+
 
     public ICommentsImplCtrl(CommentsServiceImpl iCommentsService) {
         this.iCommentsService = iCommentsService;
@@ -54,6 +58,11 @@ public class ICommentsImplCtrl implements ICommentsApi {
             String creator = "comment add api";
             comments.setCreator(creator)
                     .setModifier(creator);
+        }
+        try {
+            System.out.println("comment: " + objectMapper.writeValueAsString(comments));
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
         }
         return iCommentsService.save(comments);
     }

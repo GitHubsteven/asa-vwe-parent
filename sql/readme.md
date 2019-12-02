@@ -1,35 +1,35 @@
 #### 生成表的sql
 1. 生成vwe_blog
 ```
-create table vwe_blog
+CREATE TABLE IF NOT EXISTS vwe_blog
 (
-	id int auto_increment
-		primary key,
-	title varchar(100) null,
-	author varchar(50) not null,
-	content varchar(10000) null,
-	create_time timestamp default CURRENT_TIMESTAMP not null,
-	creator varchar(50) not null,
-	modify_time timestamp default CURRENT_TIMESTAMP not null,
-	modifier varchar(50) not null
-)；
+  id          INT AUTO_INCREMENT
+    PRIMARY KEY,
+  title       VARCHAR(100)                        NULL,
+  author      VARCHAR(50)                         NOT NULL,
+  content     VARCHAR(10000)                      NULL,
+  create_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  creator     VARCHAR(50)                         NOT NULL,
+  modify_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  modifier    VARCHAR(50)                         NOT NULL
+);
 
 ```
 2. 生成comments
 ```
-create table vwe_comments
+CREATE TABLE IF NOT EXISTS vwe_comments
 (
-	id int auto_increment
-		primary key,
-	content varchar(10000) null,
-	blog_id varchar(50) null,
-	email varchar(50) not null,
-	ref_id varchar(20) null,
-	remark varchar(200) null,
-	sub_comments varchar(200) null,
-	create_time timestamp default CURRENT_TIMESTAMP not null,
-	creator varchar(50) not null,
-	modify_time timestamp default CURRENT_TIMESTAMP not null,
-	modifier varchar(50) not null
+  id           INT AUTO_INCREMENT
+    PRIMARY KEY,
+  content      VARCHAR(10000)                      NULL,
+  blog_id      VARCHAR(50)                         NULL,
+  email        VARCHAR(50)                         NOT NULL,
+  ref_id       VARCHAR(20)                         NULL,
+  remark       VARCHAR(200)                        NULL,
+  sub_comments VARCHAR(200)                        NULL,
+  create_time  TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  creator      VARCHAR(50)                         NOT NULL,
+  modify_time  TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  modifier     VARCHAR(50)                         NOT NULL
 );
 ```
