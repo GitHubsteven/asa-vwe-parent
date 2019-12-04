@@ -1,0 +1,25 @@
+server:
+  port: 9201
+api:
+  comments: vwe-buz-comments
+spring:
+  application:
+    name: vwe_buz_blog
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:7761/eureka/
+
+logging:
+  level:
+    root: info
+    pers:
+      demo:
+        asa:
+          vwe:
+            blog:
+              dao: trace
+
+#mybatis-plus config:
+mybatis-plus:
+  mapper-locations: classpath*:pers/demo/asa/vwe/blog/mapper/**/*.xml

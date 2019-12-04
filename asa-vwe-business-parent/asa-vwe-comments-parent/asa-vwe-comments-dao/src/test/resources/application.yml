@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: vwe_biz_comments
+    name: vwe_buz_comments
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/asa_vwe?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
