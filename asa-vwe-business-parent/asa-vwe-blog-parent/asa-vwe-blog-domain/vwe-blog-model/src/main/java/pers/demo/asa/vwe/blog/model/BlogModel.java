@@ -2,14 +2,16 @@ package pers.demo.asa.vwe.blog.model;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import pers.demo.asa.vwe.common.model.BaseModel;
+
 import java.time.LocalDateTime;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author voerp-mybatis-generator
@@ -19,7 +21,7 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
 @TableName("vwe_blog")
-public class BlogModel extends BaseModel<Long> {
+public class BlogModel extends BaseModel<Integer> {
 
     private static final long serialVersionUID = 1L;
 

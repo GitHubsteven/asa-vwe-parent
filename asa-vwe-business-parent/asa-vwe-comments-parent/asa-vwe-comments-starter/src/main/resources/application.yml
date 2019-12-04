@@ -1,14 +1,13 @@
 server:
   port: 9200
-#  asa123X$
 spring:
   application:
     name: vwe-biz-comments
   datasource:
     url: jdbc:mysql://localhost:3306/asa_vwe_parent?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password: asa123X$
-    username: root
+    password: asa123X$_vp
+    username: vwe_prod
 
 eureka:
   client:
