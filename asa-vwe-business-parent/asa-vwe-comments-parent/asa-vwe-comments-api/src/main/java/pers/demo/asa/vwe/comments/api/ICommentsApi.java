@@ -1,7 +1,9 @@
 package pers.demo.asa.vwe.comments.api;
 
 import org.springframework.web.bind.annotation.*;
+import pers.demo.asa.vwe.comments.bean.constant.CommentsUrl;
 import pers.demo.asa.vwe.comments.model.CommentsModel;
+import pers.demo.asa.vwe.common.controller.IController;
 
 import java.util.List;
 
@@ -11,15 +13,16 @@ import java.util.List;
  * @Author jet.xie
  * @Date: Created at 11:30 2019/10/30.
  */
-@RequestMapping("/comments")
-public interface ICommentsApi {
+@RequestMapping(CommentsUrl.ROOT)
+public interface ICommentsApi extends IController<CommentsModel> {
     /**
-     * 测试api
+     * 统计blog的评论量
      *
-     * @return 测试api 结果
+     * @param blogId 博客id
+     * @return 评论量
      */
-    @GetMapping("/api1")
-    String api1();
+    @GetMapping(CommentsUrl.Comments.COUNT_COMMENTS)
+    int count(@PathVariable("blogId") String blogId);
 
     /**
      * 统计blog的评论量
@@ -27,33 +30,6 @@ public interface ICommentsApi {
      * @param blogId 博客id
      * @return 评论量
      */
-    @GetMapping("/count")
-    int count(@RequestParam(name = "blogId") String blogId);
-
-    /**
-     * 统计blog的评论量
-     *
-     * @param blogId 博客id
-     * @return 评论量
-     */
-    @GetMapping("/listBlogComments")
-    List<CommentsModel> listBlogComments(@RequestParam(name = "blogId") String blogId);
-
-    /**
-     * 通过id获取评论
-     *
-     * @param id 评论id
-     * @return 评论
-     */
-    @GetMapping("/getById/{id}")
-    CommentsModel getById(@PathVariable("id") String id);
-
-    /**
-     * 添加评论
-     *
-     * @param comments 评论
-     * @return 添加结果，true表示成功，false表示失败
-     */
-    @PostMapping("/add")
-    Boolean add(@RequestBody CommentsModel comments);
+    @GetMapping(CommentsUrl.Comments.LIST_BLOG_COMMENTS)
+    List<CommentsModel> listBlogComments(@PathVariable("blogId") String blogId);
 }

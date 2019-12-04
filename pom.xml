@@ -181,6 +181,10 @@
                     <exclude>env/</exclude>
                 </excludes>
             </resource>
+            <!-- 之后再根据配置选择具体的 env 目录，maven 会根据该配置复制到资源根目录 -->
+            <resource>
+                <directory>src/main/resources/env/${properties.env}</directory>
+            </resource>
         </resources>
 
         <pluginManagement>
@@ -204,6 +208,11 @@
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
                     <version>2.1.8.RELEASE</version>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                        </execution>
+                    </executions>
                 </plugin>
                 <!--                打包资源-->
                 <plugin>

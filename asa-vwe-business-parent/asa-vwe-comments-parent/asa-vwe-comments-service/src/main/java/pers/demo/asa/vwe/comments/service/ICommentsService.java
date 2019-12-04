@@ -1,5 +1,6 @@
 package pers.demo.asa.vwe.comments.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import pers.demo.asa.vwe.comments.model.CommentsModel;
 
 /**
@@ -8,7 +9,7 @@ import pers.demo.asa.vwe.comments.model.CommentsModel;
  * @Author jet.xie
  * @Date: Created at 11:23 2019/10/30.
  */
-public interface ICommentsService {
+public interface ICommentsService extends IService<CommentsModel> {
     /**
      * 测试 api
      *

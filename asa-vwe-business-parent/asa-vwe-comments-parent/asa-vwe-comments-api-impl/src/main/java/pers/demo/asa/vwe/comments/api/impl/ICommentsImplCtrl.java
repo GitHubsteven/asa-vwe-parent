@@ -29,11 +29,6 @@ public class ICommentsImplCtrl implements ICommentsApi {
     }
 
     @Override
-    public String api1() {
-        return "comments service test, call result is: " + iCommentsService.api1();
-    }
-
-    @Override
     public int count(String blogId) {
         return iCommentsService.countComments(blogId);
     }
@@ -65,5 +60,15 @@ public class ICommentsImplCtrl implements ICommentsApi {
             throw new RuntimeException(e);
         }
         return iCommentsService.save(comments);
+    }
+
+    @Override
+    public Boolean deleteById(String id) {
+        return null;
+    }
+
+    @Override
+    public Boolean updateBydId(CommentsModel updateModel, String id) {
+        return null;
     }
 }
