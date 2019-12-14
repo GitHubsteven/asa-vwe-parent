@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import pers.demo.asa.vwe.common.constant.UrlConstant;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @version 1.0.0 COPYRIGHT © 2001 - 2019 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  * @Description:
@@ -24,7 +27,6 @@ public interface IController<T> {
         return false;
     }
 
-    ;
 
     /**
      * 删除model
@@ -56,6 +58,17 @@ public interface IController<T> {
      */
     @GetMapping(UrlConstant.DefaultUrl.GET_BY_ID)
     default T getById(@PathVariable("id") String id) {
+        return null;
+    }
+
+    /**
+     * 批量查询
+     *
+     * @param params 查询参数
+     * @return 结果集合
+     */
+    @PostMapping(UrlConstant.DefaultUrl.LIST)
+    default List<T> list(@RequestBody Map<String, Object> params) {
         return null;
     }
 }

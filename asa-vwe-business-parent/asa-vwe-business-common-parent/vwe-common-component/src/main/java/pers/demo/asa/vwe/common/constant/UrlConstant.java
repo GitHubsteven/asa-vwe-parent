@@ -12,5 +12,6 @@ public class UrlConstant {
         String DELETE_BY_ID = "/delete/{id}";
         String GET_BY_ID = "/get/{id}";
         String UPDATE_BY_ID = "/update/{id}";
+        String LIST = "/list";
     }
 }

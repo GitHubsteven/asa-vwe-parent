@@ -1,5 +1,5 @@
 server:
-  port: 9201
+  port: 9100
 api:
   comments: vwe-buz-comments
 spring:

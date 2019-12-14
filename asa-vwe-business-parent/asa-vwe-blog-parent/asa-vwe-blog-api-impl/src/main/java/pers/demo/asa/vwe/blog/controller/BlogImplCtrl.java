@@ -3,6 +3,8 @@ package pers.demo.asa.vwe.blog.controller;
 
 import com.asa.demo.vwe.comments.feign.client.CommentsClient;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 import pers.demo.asa.vwe.blog.api.IBlogApi;
@@ -12,6 +14,7 @@ import pers.demo.asa.vwe.blog.service.IBlogService;
 import pers.demo.asa.vwe.comments.model.CommentsModel;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -23,6 +26,7 @@ import java.util.List;
  */
 @RestController
 public class BlogImplCtrl implements IBlogApi {
+    private Logger logger = LoggerFactory.getLogger(BlogImplCtrl.class);
     private final static String creator = "BlogImplCtrl";
 
     @Autowired
@@ -61,5 +65,11 @@ public class BlogImplCtrl implements IBlogApi {
     @Override
     public BlogModel getById(String id) {
         return iBlogService.getById(id);
+    }
+
+    @Override
+    public List<BlogModel> list(Map<String, Object> params) {
+        logger.info("----------params:{}", params);
+        return iBlogService.list();
     }
 }

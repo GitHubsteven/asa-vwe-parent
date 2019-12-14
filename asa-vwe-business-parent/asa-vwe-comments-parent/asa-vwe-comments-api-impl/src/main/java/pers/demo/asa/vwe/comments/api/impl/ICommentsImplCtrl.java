@@ -4,10 +4,13 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pers.demo.asa.vwe.comments.api.ICommentsApi;
+import pers.demo.asa.vwe.comments.bean.constant.CommentsUrl;
 import pers.demo.asa.vwe.comments.model.CommentsModel;
 import pers.demo.asa.vwe.comments.service.impl.CommentsServiceImpl;
+import pers.demo.asa.vwe.common.controller.IController;
 
 import java.util.List;
 
@@ -19,6 +22,7 @@ import java.util.List;
  * @Date: Created at 18:49 2019/10/29.
  */
 @RestController
+@RequestMapping(CommentsUrl.ROOT)
 public class ICommentsImplCtrl implements ICommentsApi {
     private final CommentsServiceImpl iCommentsService;
     private final ObjectMapper objectMapper = new ObjectMapper();
@@ -64,11 +68,12 @@ public class ICommentsImplCtrl implements ICommentsApi {
 
     @Override
     public Boolean deleteById(String id) {
-        return null;
+        return iCommentsService.removeById(id);
     }
 
     @Override
     public Boolean updateBydId(CommentsModel updateModel, String id) {
-        return null;
+        updateModel.setId(Integer.valueOf(id));
+        return iCommentsService.updateById(updateModel);
     }
 }
