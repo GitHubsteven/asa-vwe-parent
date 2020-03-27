@@ -5,7 +5,6 @@ import com.asa.demo.vwe.comments.feign.client.CommentsClient;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 import pers.demo.asa.vwe.blog.api.IBlogApi;
 import pers.demo.asa.vwe.blog.bean.BlogBean;
@@ -29,16 +28,19 @@ public class BlogImplCtrl implements IBlogApi {
     private Logger logger = LoggerFactory.getLogger(BlogImplCtrl.class);
     private final static String creator = "BlogImplCtrl";
 
-    @Autowired
-    private IBlogService iBlogService;
-    @Autowired
-    private CommentsClient commentsClient;
+    private final IBlogService iBlogService;
+    private final CommentsClient commentsClient;
+
+    public BlogImplCtrl(IBlogService iBlogService, CommentsClient commentsClient) {
+        this.iBlogService = iBlogService;
+        this.commentsClient = commentsClient;
+    }
 
     @Override
     public BlogBean getBlogWithComments(String id) {
         List<CommentsModel> comments = commentsClient.listBlogComments(String.valueOf(id));
         BlogModel blogModel = iBlogService.getById(Integer.valueOf(id));
-        return new BlogBean().setBlogModel(blogModel)
+        return new BlogBean().setBlog(blogModel)
                 .setComments(comments);
     }
 

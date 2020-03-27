@@ -1,13 +1,9 @@
 package pers.demo.asa.vwe.common.generator;
 
 import com.baomidou.mybatisplus.generator.AutoGenerator;
-import com.baomidou.mybatisplus.generator.config.ConstVal;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
-import com.baomidou.mybatisplus.generator.config.TemplateConfig;
-import com.fasterxml.jackson.databind.util.ConstantValueInstantiator;
 import pers.demo.asa.vwe.common.generator.provider.RelPathProvider;
 import pers.demo.asa.vwe.common.generator.provider.SupperClassProvider;
-import pers.demo.asa.vwe.common.generator.provider.TemplateProvider;
 import pers.demo.asa.vwe.common.generator.support.VMGConstant;
 import pers.demo.asa.vwe.common.model.BaseModel;
 
@@ -35,8 +31,8 @@ public class VweCodeGenerator {
         pathProvider.setUserDir(System.getProperty("user.dir"))
                 .setParentPackage("pers.demo.asa.vwe.blog")
                 .withParentModuleChain("asa-vwe-business-parent", "asa-vwe-blog-parent")
-                .withDaoModuleChain("asa-vwe-business-parent", "asa-vwe-blog-parent","asa-vwe-blog-dao")
-                .withMapperModuleChain("asa-vwe-business-parent", "asa-vwe-blog-parent","asa-vwe-blog-dao")
+                .withDaoModuleChain("asa-vwe-business-parent", "asa-vwe-blog-parent", "asa-vwe-blog-dao")
+                .withMapperModuleChain("asa-vwe-business-parent", "asa-vwe-blog-parent", "asa-vwe-blog-dao")
                 .withModelModuleChain("asa-vwe-business-parent", "asa-vwe-blog-parent", "asa-vwe-blog-domain", "vwe-blog-model");
         //supperClassProvider
         SupperClassProvider supperClzProvider = new SupperClassProvider();

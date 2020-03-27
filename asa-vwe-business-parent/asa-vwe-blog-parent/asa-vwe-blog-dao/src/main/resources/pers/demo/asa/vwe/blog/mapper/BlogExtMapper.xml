@@ -4,14 +4,14 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="pers.demo.asa.vwe.blog.model.BlogModel">
-    <result column="id" property="id" />
-    <result column="creator" property="creator" />
-    <result column="modifier" property="modifier" />
-        <result column="title" property="title" />
-        <result column="author" property="author" />
-        <result column="content" property="content" />
-        <result column="create_time" property="createTime" />
-        <result column="modify_time" property="modifyTime" />
+        <result column="id" property="id"/>
+        <result column="creator" property="creator"/>
+        <result column="modifier" property="modifier"/>
+        <result column="title" property="title"/>
+        <result column="author" property="author"/>
+        <result column="content" property="content"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_time" property="modifyTime"/>
     </resultMap>
 
 </mapper>

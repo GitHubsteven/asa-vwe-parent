@@ -7,8 +7,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScans;
-import org.springframework.stereotype.Component;
 
 /**
  * @version 1.0.0 COPYRIGHT © 2001 - 2019 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
@@ -19,7 +17,7 @@ import org.springframework.stereotype.Component;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages={"com.asa.demo.vwe.comments.feign.client"})
+@EnableFeignClients(basePackages = {"com.asa.demo.vwe.comments.feign.client"})
 @ComponentScan("pers.demo.asa.vwe.blog")
 @MapperScan("pers.demo.asa.vwe.blog.dao")
 public class VWEBlogApplication {

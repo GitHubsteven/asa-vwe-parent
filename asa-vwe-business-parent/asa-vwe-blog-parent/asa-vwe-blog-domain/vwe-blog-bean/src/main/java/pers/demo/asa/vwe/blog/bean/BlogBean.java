@@ -19,6 +19,6 @@ import java.util.List;
 @Getter
 @Accessors(chain = true)
 public class BlogBean implements Serializable {
-    private BlogModel blogModel;
+    private BlogModel blog;
     private List<CommentsModel> comments;
 }

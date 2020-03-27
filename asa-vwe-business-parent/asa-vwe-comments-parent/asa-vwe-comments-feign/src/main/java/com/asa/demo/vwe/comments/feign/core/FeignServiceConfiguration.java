@@ -15,7 +15,7 @@ import org.springframework.core.convert.ConversionService;
 public class FeignServiceConfiguration {
     @Bean
     @ConditionalOnMissingBean
-    public Contract feignContract(ConversionService feignConversionService){
+    public Contract feignContract(ConversionService feignConversionService) {
         return new SpringMvcContract();
     }
 }
