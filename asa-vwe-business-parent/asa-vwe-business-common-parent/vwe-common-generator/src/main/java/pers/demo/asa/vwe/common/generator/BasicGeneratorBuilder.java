@@ -127,7 +127,7 @@ public class BasicGeneratorBuilder implements Builder<AutoGenerator> {
         InjectionConfig injectionConfig = new InjectionConfig() {
             @Override
             public void initMap() {
-                Map<String, Object> map = new HashMap<>();
+                Map<String, Object> map = new HashMap<>(3);
                 map.put(VMGConstant.CustomInjectArgsKey.SUPPER_ENTITY_CARD_ARG, "Long");
                 map.put(VMGConstant.CustomInjectArgsKey.IS_REPOSITORY, isRepository);
                 map.put(VMGConstant.CustomInjectArgsKey.IS_EXCLUDE_MP, Boolean.TRUE);

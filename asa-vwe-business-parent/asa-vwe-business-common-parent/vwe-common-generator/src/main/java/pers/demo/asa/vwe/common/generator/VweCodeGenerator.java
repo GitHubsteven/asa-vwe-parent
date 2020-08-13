@@ -15,7 +15,7 @@ import pers.demo.asa.vwe.common.model.BaseModel;
  * @Date: Created at 16:36 2019/10/25.
  */
 public class VweCodeGenerator {
-    private static String DATASOURCE_URL = "jdbc:mysql://127.0.0.1:3306/asa_vwe?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC";
+    private static String DATASOURCE_URL = "jdbc:mysql://127.0.0.1:3306/asa_vwe_parent?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC";
     private static String username = "root";
     private static String pwd = "123456";
 
@@ -41,7 +41,7 @@ public class VweCodeGenerator {
         //ignore super columns "id", "creator", "createTime", "modifier", "modifyTime"
         String[] ignoreSuperFields = {"id", "creator", "createTime", "modifier", "modifyTime"};
 //        ^vwe_(.*)$
-        String[] inclusive = {"vwe_blog"};
+        String[] inclusive = {"vwe_session"};
         BasicGeneratorBuilder builder = new BasicGeneratorBuilder();
         AutoGenerator generator = builder.setDataSourceConfig(dsf)
                 .setIPathProvider(pathProvider)
