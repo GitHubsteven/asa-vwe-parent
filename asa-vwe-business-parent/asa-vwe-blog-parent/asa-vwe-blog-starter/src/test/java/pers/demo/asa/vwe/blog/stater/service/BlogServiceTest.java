@@ -1,12 +1,18 @@
 package pers.demo.asa.vwe.blog.stater.service;
 
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.metadata.OrderItem;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import pers.demo.asa.vwe.blog.model.BlogModel;
 import pers.demo.asa.vwe.blog.service.IBlogService;
 import pers.demo.asa.vwe.blog.stater.BaseTest;
+
+import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.Date;
 
 /**
  * @version 1.0.0 COPYRIGHT © 2001 - 2019 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
@@ -27,9 +33,12 @@ public class BlogServiceTest extends BaseTest {
     @Test
     public void testSave() {
         BlogModel blogModel = new BlogModel();
-        blogModel.setTitle("blog from BlogServiceTest")
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYYMMDDHHmmSS");
+        String label = simpleDateFormat.format(new Date());
+        String finalLabel = label.substring(label.length() - 4);
+        blogModel.setTitle("title" + finalLabel)
                 .setAuthor("asa.x")
-                .setContent("blog content from BlogServiceTest")
+                .setContent("content " + finalLabel)
                 .setCreator("BlogServiceTest")
                 .setModifier("BlogServiceTest");
         boolean save = iBlogService.save(blogModel);
@@ -45,5 +54,16 @@ public class BlogServiceTest extends BaseTest {
                 .setModifier("BlogServiceTest-update");
         boolean update = iBlogService.updateById(blogModel);
         Assert.assertTrue(update);
+    }
+
+    @Test
+    public void testSelectWithPage() {
+        Page<BlogModel> page = new Page<>();
+        page.setCurrent(1L).setSize(10).setOrders(Collections.singletonList(OrderItem.desc("id")));
+        BlogModel checkModel = new BlogModel();
+        checkModel.setAuthor("asa.x");
+        checkModel.setTitle("2");
+        IPage<BlogModel> pageResult = iBlogService.selectBlogPage(page, checkModel);
+        System.out.println(pageResult.getRecords().size());
     }
 }

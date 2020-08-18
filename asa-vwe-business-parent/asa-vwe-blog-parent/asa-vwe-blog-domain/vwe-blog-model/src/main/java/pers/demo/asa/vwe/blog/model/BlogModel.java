@@ -1,13 +1,10 @@
 package pers.demo.asa.vwe.blog.model;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import pers.demo.asa.vwe.common.model.BaseModel;
-
-import java.time.LocalDateTime;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import pers.demo.asa.vwe.common.model.BaseModel;
 
 /**
  * <p>
@@ -30,10 +27,4 @@ public class BlogModel extends BaseModel<Integer> {
     private String author;
 
     private String content;
-
-    private LocalDateTime createTime;
-
-    private LocalDateTime modifyTime;
-
-
 }

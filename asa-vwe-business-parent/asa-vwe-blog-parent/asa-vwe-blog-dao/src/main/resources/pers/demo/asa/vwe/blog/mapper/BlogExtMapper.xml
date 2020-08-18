@@ -14,4 +14,20 @@
         <result column="modify_time" property="modifyTime"/>
     </resultMap>
 
+    <select id="selectWithPage" resultType="pers.demo.asa.vwe.blog.model.BlogModel">
+        select *
+        from asa_vwe_parent.vwe_blog
+        <where>
+            <if test="model.author != null">
+                and author = #{model.author}
+            </if>
+            <if test="model.title != null">
+                and title like concat("%",#{model.title},"%")
+            </if>
+            <if test="model.content != null">
+                and content like concat("%",#{model.content},"%")
+            </if>
+        </where>
+
+    </select>
 </mapper>
