@@ -39,6 +39,7 @@
         <module>asa-vwe-config</module>
         <module>asa-vwe-business-parent</module>
         <module>asa-vwe-eureka-server</module>
+        <module>asa-vwe-cms</module>
     </modules>
     <pluginRepositories>
         <pluginRepository>
@@ -139,6 +140,16 @@
                 <groupId>com.sun.xml.bind</groupId>
                 <artifactId>jaxb-impl</artifactId>
                 <version>2.3.1</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>0.9.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jongo</groupId>
+                <artifactId>jongo</artifactId>
+                <version>1.4.1</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

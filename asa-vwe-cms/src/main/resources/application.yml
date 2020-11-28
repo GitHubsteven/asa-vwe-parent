@@ -1,15 +1,17 @@
 spring:
+  application:
+    name: VweCmsApplication
   datasource:
     url: jdbc:mysql://localhost:3306/asa_vwe_parent?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
     password: 123456
     username: root
-    # data config
   data:
     mongodb:
       host: 127.0.0.1
       port: 27017
       #      authentication-database: admin
       database: blogs
-  #      username: root
-  #      password: 123456
+
+server:
+  port: 9400

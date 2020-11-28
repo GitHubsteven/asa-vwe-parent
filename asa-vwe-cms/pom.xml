@@ -1,35 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>asa-vwe-blog-parent</artifactId>
+        <artifactId>asa-vwe-parent</artifactId>
         <groupId>com.asa.demo</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>asa-vwe-blog-starter</artifactId>
+    <artifactId>asa-vwe-cms</artifactId>
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.asa.demo</groupId>
-            <artifactId>asa-vwe-blog-api-impl</artifactId>
+            <artifactId>vwe-common-component</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
+            <version>2.1.7.RELEASE</version>
         </dependency>
+
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
@@ -43,25 +49,4 @@
             <artifactId>spring-cloud-openfeign-core</artifactId>
         </dependency>
     </dependencies>
-
-    <!--    <build>-->
-    <!--        <plugins>-->
-    <!--            <plugin>-->
-    <!--                <groupId>org.apache.maven.plugins</groupId>-->
-    <!--                <artifactId>maven-resources-plugin</artifactId>-->
-    <!--            </plugin>-->
-    <!--            <plugin>-->
-    <!--                <groupId>org.codehaus.mojo</groupId>-->
-    <!--                <artifactId>findbugs-maven-plugin</artifactId>-->
-    <!--            </plugin>-->
-    <!--            <plugin>-->
-    <!--                <groupId>org.apache.maven.plugins</groupId>-->
-    <!--                <artifactId>maven-compiler-plugin</artifactId>-->
-    <!--            </plugin>-->
-    <!--            <plugin>-->
-    <!--                <groupId>org.springframework.boot</groupId>-->
-    <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-    <!--            </plugin>-->
-    <!--        </plugins>-->
-    <!--    </build>-->
 </project>

@@ -27,5 +27,7 @@
 
 | 服务名称  | 启动module | 占用端口|
 |---|---|---|
+|  eureka-server | | 8761
 |  blog | | 9100
+|  comments | | 9200
 |  comments | | 9200

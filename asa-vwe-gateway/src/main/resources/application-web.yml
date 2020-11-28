@@ -1,0 +1,54 @@
+server:
+  port: 9000
+
+#注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+jwt:
+  secret: hello,jwt!
+
+
+
+
+spring:
+  application:
+    name: cloud-gateway-jwt
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          lower-case-service-id: true
+      routes:
+        - id: service-hi
+          uri: lb://SERVICE-HI
+          predicates:
+            - Path=/openapi/service/hi/**
+          filters:
+            - StripPrefix=1
+        - id: service-order
+          uri: lb://SERVICE-ORDER
+          predicates:
+            - Path=/openapi/service/order/**
+          filters:
+            - StripPrefix=1
+        - id: service-user
+          uri: http://localhost:${server.port}
+          predicates:
+            - Path=/openapi/service/user/**
+          filters:
+            - StripPrefix=1
+#            - name: Logging
+#              args:
+#                baseMessage: Custom filter factory
+#                preLogger: true
+#                postLogger: true
+
+config:
+  security:
+    ignoreUrls:
+      - /openapi/service/user/authentication
+      - /openapi/service/user/login
+
