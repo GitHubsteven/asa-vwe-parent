@@ -9,9 +9,6 @@ eureka:
 jwt:
   secret: hello,jwt!
 
-
-
-
 spring:
   application:
     name: cloud-gateway-jwt
@@ -35,7 +32,7 @@ spring:
           filters:
             - StripPrefix=1
         - id: service-user
-          uri: http://localhost:${server.port}
+          uri: localhost:${server.port}
           predicates:
             - Path=/openapi/service/user/**
           filters:

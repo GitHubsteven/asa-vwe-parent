@@ -20,6 +20,6 @@ import java.util.List;
 @NoArgsConstructor
 public class UserBean {
     private String username;
-    private String password;
+    private String _hash;
     private List<String> roles;
 }

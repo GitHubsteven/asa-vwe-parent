@@ -2,6 +2,7 @@ package pers.demo.asa.vwe.gateway.service;
 
 
 import pers.demo.asa.vwe.gateway.bean.UserBean;
+import pers.demo.asa.vwe.gateway.model.UserModel;
 
 /**
  * @author rongbin.xie
@@ -18,4 +19,11 @@ public interface IUserService {
      * @return 用户信息
      */
     UserBean loadUserByUserName(String userName);
+
+    /**
+     * 注册用户
+     *
+     * @param user 用户
+     */
+    void register(UserModel user);
 }

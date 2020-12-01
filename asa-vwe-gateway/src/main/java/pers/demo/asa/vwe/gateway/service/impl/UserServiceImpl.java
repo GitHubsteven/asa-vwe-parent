@@ -1,15 +1,14 @@
 package pers.demo.asa.vwe.gateway.service.impl;
 
 import org.springframework.stereotype.Service;
-import org.synchronoss.cloud.nio.multipart.util.IOUtils;
 import pers.demo.asa.vwe.gateway.bean.UserBean;
+import pers.demo.asa.vwe.gateway.model.UserModel;
+import pers.demo.asa.vwe.gateway.repository.UserRepository;
 import pers.demo.asa.vwe.gateway.service.IUserService;
-import pers.demo.asa.vwe.gateway.utils.JacksonUtils;
+import pers.demo.asa.vwe.gateway.utils.BCryptUtil;
+import pers.demo.asa.vwe.gateway.utils.SampleModelUtils;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
-import java.util.Objects;
+import java.util.Collections;
 
 /**
  * @author rongbin.xie
@@ -19,24 +18,30 @@ import java.util.Objects;
  * @copyright COPYRIGHT © 2014 - 2020 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  **/
 @Service
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl extends BaseService implements IUserService {
+
+    private final UserRepository userRepository;
+
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     public UserBean loadUserByUserName(String userName) {
-        return listUsers().stream()
-                .filter(it -> Objects.equals(it.getUsername(), userName))
-                .findFirst()
-                .orElse(null);
+        final UserModel userModel = userRepository.findByUsername(userName);
+        return userModel == null ? null : new UserBean(userModel.getUsername(), userModel.getHash(),
+                Collections.singletonList(userModel.getRole()));
     }
 
-
-    public List<UserBean> listUsers() {
-        try (final InputStream userResources = this.getClass().getClassLoader().getResourceAsStream("users.json")) {
-            Objects.requireNonNull(userResources);
-            final String usersJson = IOUtils.inputStreamAsString(userResources, "utf-8");
-            return JacksonUtils.json2List(usersJson, UserBean.class);
-        } catch (IOException e) {
-            throw new RuntimeException("get users failed!", e);
+    @Override
+    public void register(UserModel user) {
+        final UserModel existedUserByName = userRepository.findByUsername(user.getUsername());
+        if (existedUserByName != null) {
+            throw new RuntimeException(String.format("account[%s] has existed", user.getUsername()));
         }
+        final String hash = BCryptUtil.hashPw(user.getUsername());
+        user.setHash(hash);
+        SampleModelUtils.setCreated(user, getUser().getUsername());
+        userRepository.save(user);
     }
 }

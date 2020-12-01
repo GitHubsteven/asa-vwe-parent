@@ -11,7 +11,7 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-public class DemoRequest {
+public class AuthRequest {
     private String username;
     private String password;
     private String requestId;

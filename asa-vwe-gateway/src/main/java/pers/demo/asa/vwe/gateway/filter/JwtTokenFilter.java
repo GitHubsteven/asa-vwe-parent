@@ -11,13 +11,13 @@ import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.server.ServerWebExchange;
-import pers.asa.demo.spring.cloud.gateway.jwt.bean.CommonResp;
-import pers.asa.demo.spring.cloud.gateway.jwt.bean.GatewayConstants;
-import pers.asa.demo.spring.cloud.gateway.jwt.bean.UserBean;
-import pers.asa.demo.spring.cloud.gateway.jwt.config.SecurityProperties;
-import pers.asa.demo.spring.cloud.gateway.jwt.service.IUserService;
-import pers.asa.demo.spring.cloud.gateway.jwt.utils.JacksonUtils;
-import pers.asa.demo.spring.cloud.gateway.jwt.utils.JwtTokenUtil;
+import pers.demo.asa.vwe.gateway.bean.CommonResp;
+import pers.demo.asa.vwe.gateway.bean.GatewayConstants;
+import pers.demo.asa.vwe.gateway.bean.UserBean;
+import pers.demo.asa.vwe.gateway.config.SecurityProperties;
+import pers.demo.asa.vwe.gateway.service.IUserService;
+import pers.demo.asa.vwe.gateway.utils.JacksonUtils;
+import pers.demo.asa.vwe.gateway.utils.JwtTokenUtil;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -62,7 +62,7 @@ public class JwtTokenFilter implements GlobalFilter, Ordered {
         if (!CollectionUtils.isEmpty(bearerTokens)) {
             final String tokenInfo = bearerTokens.get(0);
             if (!tokenInfo.startsWith(GatewayConstants.BEARER_START)) {
-                return writeError(response, "not support authrization!");
+                return writeError(response, "not support authorization!");
             }
             token = tokenInfo.split(" ")[1];
         }

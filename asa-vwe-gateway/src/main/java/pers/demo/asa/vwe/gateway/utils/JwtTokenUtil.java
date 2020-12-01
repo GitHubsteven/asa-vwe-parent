@@ -17,7 +17,7 @@ import java.util.function.Function;
 /**
  * @author jet.xie
  * @version 1.0.0 COPYRIGHT © 2001 - 2018 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
- * @Description: jwt辅助工具类
+ * @description: jwt辅助工具类
  * @date: Created at 19:50 2019/8/29.
  */
 @Component
@@ -66,9 +66,9 @@ public class JwtTokenUtil implements Serializable {
      * 2. Sign the jwt using the HS512 algorithm and secret key
      * 3. According to jws compact serialization(https://tools.ietf.org/html/draft-ietf-jose-json-web-signature-41#section-3.1)compaction of the JWT to a URL-safe string )
      *
-     * @param claims
-     * @param subject
-     * @return
+     * @param claims  额外的声明集合
+     * @param subject 用户名称，用户id或者其他可以识别用户的唯一性标识
+     * @return token
      */
     private String doGenerateToken(Map<String, Object> claims, String subject) {
         return Jwts.builder()
@@ -85,9 +85,8 @@ public class JwtTokenUtil implements Serializable {
      *
      * @param token       token
      * @param userDetails 用户信息
-     * @return 检测结果
      */
-    public boolean validateToken(String token, UserBean userDetails) {
+    public void validateToken(String token, UserBean userDetails) {
         if (userDetails == null) {
             throw new RuntimeException("User not existed!");
         }
@@ -98,6 +97,5 @@ public class JwtTokenUtil implements Serializable {
         if (!Objects.equals(username, userDetails.getUsername())) {
             throw new RuntimeException("Username and token not matched");
         }
-        return true;
     }
 }
