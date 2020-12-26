@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import pers.demo.asa.vwe.blog.BaseTest;
-import pers.demo.asa.vwe.blog.model.mongo.BlogModel;
+import pers.demo.asa.vwe.blog.model.mongo.MBlogModel;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class BlogRepositoryTest extends BaseTest {
 
     @Test
     public void findAllByAuthor() {
-        List<BlogModel> blogs = blogRepository.findAllByAuthor("test");
+        List<MBlogModel> blogs = blogRepository.findAllByAuthor("test");
         blogs.forEach(System.out::println);
     }
 
@@ -34,7 +34,7 @@ public class BlogRepositoryTest extends BaseTest {
     public void method() {
         Criteria criteria = Criteria.where("title").regex("category.");
         Query query = new Query(criteria);
-        List<BlogModel> blogModels = mongoTemplate.find(query, BlogModel.class);
+        List<MBlogModel> blogModels = mongoTemplate.find(query, MBlogModel.class);
         System.out.println(blogModels.size());
         blogModels.forEach(System.out::println);
     }

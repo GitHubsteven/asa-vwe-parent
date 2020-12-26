@@ -22,19 +22,19 @@ spring:
         - id: service-hi
           uri: lb://SERVICE-HI
           predicates:
-            - Path=/openapi/service/hi/**
+            - Path=/api/service/hi/**
           filters:
             - StripPrefix=1
         - id: service-order
           uri: lb://SERVICE-ORDER
           predicates:
-            - Path=/openapi/service/order/**
+            - Path=/api/service/order/**
           filters:
             - StripPrefix=1
         - id: service-user
           uri: localhost:${server.port}
           predicates:
-            - Path=/openapi/service/user/**
+            - Path=/api/service/user/**
           filters:
             - StripPrefix=1
 #            - name: Logging
@@ -46,6 +46,6 @@ spring:
 config:
   security:
     ignoreUrls:
-      - /openapi/service/user/authentication
-      - /openapi/service/user/login
+      - /api/service/user/authentication
+      - /api/service/user/login
 

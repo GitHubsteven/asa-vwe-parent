@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 import pers.demo.asa.vwe.blog.api.IBlogApi;
 import pers.demo.asa.vwe.blog.bean.BlogBean;
 import pers.demo.asa.vwe.blog.model.BlogModel;
+import pers.demo.asa.vwe.blog.model.mongo.MBlogModel;
+import pers.demo.asa.vwe.blog.request.BlogPageFilter;
 import pers.demo.asa.vwe.blog.service.IBlogService;
 import pers.demo.asa.vwe.comments.feign.client.CommentsClient;
 import pers.demo.asa.vwe.comments.model.CommentsModel;
@@ -73,5 +75,10 @@ public class BlogImplCtrl implements IBlogApi {
     public List<BlogModel> list(Map<String, Object> params) {
         logger.info("----------params:{}", params);
         return iBlogService.list();
+    }
+
+    @Override
+    public List<MBlogModel> selectWithPage(BlogPageFilter filter) {
+        return null;
     }
 }

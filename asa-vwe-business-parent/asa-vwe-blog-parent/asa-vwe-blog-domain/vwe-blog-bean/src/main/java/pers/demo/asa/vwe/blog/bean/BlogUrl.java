@@ -11,6 +11,7 @@ public class BlogUrl {
 
     public interface Blog {
         String LIST = "/list";
+
         String GET_BLOG_COMMENTS = "/get-blog-with-comments/{id}";
     }
 }
