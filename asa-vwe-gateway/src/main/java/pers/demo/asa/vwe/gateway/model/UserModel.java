@@ -15,7 +15,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 @Getter
 @ToString
-@Document("users")
+@Document("vwe_users")
 public class UserModel extends BaseModel {
 
     private String username;

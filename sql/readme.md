@@ -35,3 +35,20 @@ CREATE TABLE IF NOT EXISTS vwe_comments
   modifier     VARCHAR(50)                         NOT NULL
 );
 ```
+生成users
+```
+CREATE TABLE IF NOT EXISTS vwe_comments
+(
+  id           INT AUTO_INCREMENT
+    PRIMARY KEY,
+  username      VARCHAR(10000)                     NOT NULL,
+  hash          VARCHAR(50)                         NULL,
+  email        VARCHAR(50)                         NOT NULL,
+  password       VARCHAR(20)                       NOT  NULL,
+  role       VARCHAR(200)                        NOT NULL,
+  create_time  TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  creator      VARCHAR(50)                         NOT NULL,
+  modify_time  TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+  modifier     VARCHAR(50)                         NOT NULL
+);
+```

@@ -13,7 +13,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
         <mybatis-plus.version>3.2.0</mybatis-plus.version>
     </properties>
 
@@ -39,7 +39,6 @@
         <module>asa-vwe-config</module>
         <module>asa-vwe-business-parent</module>
         <module>asa-vwe-eureka-server</module>
-        <module>asa-vwe-cms</module>
     </modules>
     <pluginRepositories>
         <pluginRepository>
