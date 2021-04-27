@@ -16,7 +16,6 @@ import java.util.List;
  * @Author jet.xie
  * @Date: Created at 16:43 2019/10/10.
  */
-@RequestMapping(BlogUrl.ROOT)
 public interface IBlogApi extends IController<BlogModel> {
     /**
      * 通过blog id获取博客和下面的评论

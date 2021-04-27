@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pers.demo.asa.vwe.comments.api.ICommentsApi;
@@ -75,5 +77,15 @@ public class ICommentsImplCtrl implements ICommentsApi {
     public Boolean updateBydId(CommentsModel updateModel, String id) {
         updateModel.setId(Integer.valueOf(id));
         return iCommentsService.updateById(updateModel);
+    }
+
+    @GetMapping("/get-by-name/{name}")
+    public String getByName(@PathVariable("name") String name) {
+        return name + ", this is from comments";
+    }
+
+    @GetMapping("/pure-get")
+    public String getByName() {
+        return "this is from comments";
     }
 }

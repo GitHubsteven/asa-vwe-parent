@@ -1,8 +1,10 @@
 server:
-  port: 9200
+  port: 9210
 spring:
   application:
-    name: vwe-buz-comments
+    name: vwe-comments
+  main:
+    allow-bean-definition-overriding: true
 
 eureka:
   client:

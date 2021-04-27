@@ -10,7 +10,7 @@ public class BlogUrl {
     public static final String ROOT = "/blog";
 
     public interface Blog {
-        String LIST = "/list";
+        String LIST = "/selectByPage";
 
         String GET_BLOG_COMMENTS = "/get-blog-with-comments/{id}";
     }

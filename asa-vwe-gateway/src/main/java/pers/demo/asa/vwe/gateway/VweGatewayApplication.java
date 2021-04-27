@@ -15,4 +15,6 @@ public class VweGatewayApplication {
     public static void main(String[] args) {
         SpringApplication.run(VweGatewayApplication.class, args);
     }
+
+
 }

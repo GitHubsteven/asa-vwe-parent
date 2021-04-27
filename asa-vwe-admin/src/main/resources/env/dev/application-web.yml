@@ -1,13 +1,18 @@
 server:
-  port: 9120
+  port: 9400
 api:
   comments: vwe-comments
 spring:
   application:
-    name: vwe-blogs
+    name: vwe-admin
   main:
     allow-bean-definition-overriding: true
-
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true #开启根据服务名称自动转发
+          lower-case-service-id: true #微服务名称已小写形式呈现
 eureka:
   client:
     serviceUrl:
@@ -25,4 +30,4 @@ logging:
 
 #mybatis-plus config:
 mybatis-plus:
-  mapper-locations: classpath*:pers/demo/asa/vwe/blog/mapper/**/*.xml
+  mapper-locations: classpath*:pers/demo/asa/vwe/admin/mapper/**/*.xml
